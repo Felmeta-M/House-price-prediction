@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title> Housing Price Predictor </title>
+	<link rel="stylesheet" href="static/css/cssfile.css">
+</head>
+<body>
+	<div class="login">
+		<center>
+			<h2>
+				Welcome to California house price predictor.
+				<br>
+				<br>
+				Enter the following data to predict the median price of house.
+			</h2>
+		</center>
+		<br>
+		<center>
+		<form action="{{url_for('predict')}}" method="post" class="form-container">
+			<div class="div">
+				<label>
+					Median income in block 
+					<br>
+					<input type="number" min=0 step=0.01 name="Medinc" required="required">
+			</label>
+				<label>
+					Number of rooms 
+					<br>
+					<input type="number" min=0 name="rooms" required="required">
+				</label>
+			</div>
+			<br>
+			<br>
+
+			<div class="div">
+				<label>
+					Median house age in block 
+					<br>
+					<input type="number" min=0 name="houseage" required="required">
+				</label>
+				<label>
+					Number of bedrooms 
+					<br>
+					<input type="number" min=0 name="bedrooms" required="required">
+				</label>
+			</div>
+			<br>
+			<br>
+
+			<div class="div">
+				<label>
+					Block population 
+					<br>
+					<input type="number" min=0 name="Population" required="required">
+				</label>
+				<label>
+					Household member 
+					<br>
+					<input type="number" min=0 step=0.01 name="Occupancy" required="required">
+				</label>
+			</div>
+			<br>
+			<br>
+			<div class="div">
+			<button type="submit" class="btn btn-primary btn-block btn-large">
+			PREDICT
+			</button>
+			</div>
+			<br>
+			<br>
+			<div class="q">
+   		<strong style="font-size:35px">{{ prediction_text }}</strong>
+   		<!-- The price of the house is : $100000 -->
+   		</div>
+		</form>
+	</center>
+		<br>
+   		<br>
+	</div>
+</body>
+</html>
